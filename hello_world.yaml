@@ -1,0 +1,13 @@
+---
+- name: Echo "Hello World" and Print Success
+  hosts: your_target_host  # Replace with the hostname or IP address of your target server
+  gather_facts: no  # Disable gathering facts for this example
+
+  tasks:
+    - name: Echo "Hello World"
+      command: echo "Hello World"
+      register: hello_output  # Register the output of the echo command
+
+    - name: Print Success
+      debug:
+        msg: "Success: {{ hello_output.stdout }}"  # Display the output of the echo command
